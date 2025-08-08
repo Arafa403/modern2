@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رسالة حب من عرفه</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Amiri', serif;
+            background-image: url('https://images.unsplash.com/photo-1508253578933-e90c92f4f2c5?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgb(199, 101, 101);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            backdrop-filter: blur(3px);
+            background-color: black;
+        }
+
+        #lyrics-box {
+            font-size: 22px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            min-height: 100px;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .footer {
+            font-size: 18px;
+            color: #640404;
+        }
+
+        button {
+            margin: 10px auto;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff6f91;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #850303;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="lyrics-box">❤️ اضغط على الزر لبدء العرض</div>
+    <button id="startBtn">ابدأ العرض</button>
+    <div class="footer">FROM : Arafa</div>
+    <div class="footer"> TO : Habiba
+    </div>
+
+    <audio id="music">
+        <source src="c:\Users\a\Downloads\m219127.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <script>
+        const lyrics = [
+            "كل وعد وعدتهولك، أوفيهولك، ما تخافيش",
+            "كل حلم هييجي وقته، وبأوانه، ما تقلقيش",
+            "مش هقصر يوم معاكي، صدقيني",
+            " اجمدى دناا بقوى بيكى متضغفيش",
+            "إنتِ نفسك كنتِ حلمي، في يوم حلمته",
+            "فضلت أعافر في الحياة، لغاية ما هطوله",
+            "إنتِ زي ما كنتِ واقفة، في ضهري ساندانى",
+            "هتسندينى وهعمل اكتر من عملتو",
+            "انتى نفسك كنت حلم حلمتو وهفضل اعافر فى الحياه لغايه ما اطوله",
+            "انتى زى ما كنتى واقفه , فى ضهرى ساندانى",
+            "هتسندينى وهعمل اكتر من عملتوو",
+            "واوعدينى انك تبقى ضلى متبعديش ",
+            "كل صعب علياا عداا ونتى جمبى مهزنييش ",
+            "الوحيده اللى فى حياتى تفهمينى واللى بيها وليها عمرى اعيش",
+            "I LOVE YOU , HABIBِِِِِِA"
+        ];
+
+        const box = document.getElementById("lyrics-box");
+        const btn = document.getElementById("startBtn");
+        const music = document.getElementById("music");
+
+        btn.onclick = function () {
+            btn.style.display = "none";
+            music.play();
+
+            let index = 0;
+            const showNextLine = () => {
+                if (index < lyrics.length) {
+                    box.textContent = lyrics[index];
+                    index++;
+                    setTimeout(showNextLine, 5000); // 5 ثواني
+                }
+            };
+            showNextLine();
+        };
+    </script>
+</body>
+
+</html>
